@@ -1,0 +1,30 @@
+/* Layout Theme Colors */
+body {
+    background-color: #545151;
+}
+
+.header {
+    background-color: #187D3F;
+    color: #000000;
+}
+
+.left-column {
+    background-color: #4B351B;
+}
+
+.right-column {
+    background-color: #4B351B;
+}
+.main-column {
+    cursor:url("../src/arrow.png"), auto;
+}
+.map {
+    background-image: url("../src/bg_forest.png");
+}
+.leftbutton{
+    background: url("../src/west.png") no-repeat;
+}
+label {
+    position: absolute;
+    cursor:url("../src/arrow.png"), auto;
+}

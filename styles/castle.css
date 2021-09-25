@@ -1,0 +1,116 @@
+/* Map Theme Elements */
+.map {
+    background-image: url("../src/bg_castle.png");    
+}
+
+.leftbutton {
+    background: url("../src/left.png") no-repeat;    
+}
+
+.rightbutton {
+    background: url("../src/right.png") no-repeat;
+}
+
+.king-henry {
+    background-image: url("../src/kinghenry.png");
+    background-size: contain;
+    height: 150px;
+    width: 100px;
+}
+
+label {
+    position: absolute;
+    cursor:url("../src/cursor.png"), auto;
+}
+
+.knight1 span, .knight2 span, .knight3 span {
+    background-size: contain;
+    height: 75px;
+    width: 75px;
+    position: fixed;
+}
+
+.knight1 span {
+    background-image: url("../src/knight2.gif");
+}
+
+.knight2 span {
+    background-image: url("../src/knight1.gif");
+}
+
+.knight3 span {
+    background-image: url("../src/knight3.gif");
+}
+
+/* Enemy Functionality */
+
+.input-kinghenry:checked ~ div label[for="enemy-label1"],
+.input-knight1:checked ~ label[for="enemy-label2"],
+.input-knight2:checked ~ label[for="enemy-label3"],
+.input-knight3:checked ~ label[for="enemy-label4"],
+.input-knight4:checked ~ label[for="enemy-label5"],
+.input-knight5:checked ~ label[for="enemy-label6"],
+.input-knight6:checked ~ label[for="enemy-label7"],
+.input-knight7:checked ~ label[for="enemy-label8"] {
+    visibility: hidden;
+}
+
+/* Enemy Animation */
+
+.move, .king-henry {
+    animation:boss_move 8s linear infinite;
+}
+.move {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+}
+
+.eknight1 {
+    position: fixed;
+    top: 250px;
+    left: 60%;
+    animation:slide4 6s linear infinite;
+}
+
+.eknight2 {
+    position: fixed;
+    top: 275px;
+    left: 61%;
+    animation:slide1 6s linear infinite;
+}
+
+.eknight3 {
+    position: fixed;
+    top: 275px;
+    left: 29%;
+    animation:slide1 6s linear infinite;
+}
+
+.eknight4 {
+    position: fixed;
+    top: 80%;
+    left: 40%;
+    animation:slide2 4s linear infinite;
+}
+
+.eknight5 {
+    position: fixed;
+    top: 30%;
+    left: 70%;
+    animation:slide1 4s linear infinite;
+}
+
+.eknight6 {
+    position: fixed;
+    top: 250px;
+    left: 40%;
+    animation:slide2 4s linear infinite;
+}
+
+.eknight7 {
+    position: fixed;
+    top: 500px;
+    left: 40%;
+    animation:slide3 4s linear infinite;
+}
