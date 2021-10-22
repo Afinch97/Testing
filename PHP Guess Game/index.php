@@ -29,7 +29,7 @@ require 'inc/header.php';
 <div class="main-container animated bounceInDown">
 	<h2 class="header">TV Phrase Hunter</h2>
 	<form action="login.php" method="POST">
-		<input id="btn__reset" type="submit" name="start" value="Log in" />
+		<input id="btn__reset" type="submit" name="start" value="Log in/Register" />
 	</form>
 </div>
 

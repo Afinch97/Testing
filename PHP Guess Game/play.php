@@ -1,7 +1,8 @@
 <?php
-
 session_start();
-
+$leaderBoard = file_get_contents('Leaderboard.json');
+$scores = json_decode($leaderBoard, true);
+$uname=$_SESSION['UserData']['Username'];
 if (isset($_POST['start'])) {
     unset($_SESSION['selected']);
     unset($_SESSION['phrase']);
@@ -13,7 +14,7 @@ if (isset($_SESSION['selected']) && isset($_POST['key'])) {
     $_SESSION['selected'] = [];
 }
 
-include 'inc/Phrase.php';
+include 'inc/Phrase1.php';
 include 'inc/Game.php';
 
 if (isset($_SESSION['phrase'])) {
@@ -21,11 +22,10 @@ if (isset($_SESSION['phrase'])) {
 } else {
 	$phrase = new Phrase();
 	$_SESSION['phrase'] = $phrase->currentPhrase;
+  $_SESSION['clue'] = $phrase->new;
 }
 $game = new Game($phrase);
-
 require 'inc/header.php';
-
 ?>
 <style>
     @import url('https://fonts.googleapis.com/css?family=Baloo+Bhai&display=swap');
@@ -67,6 +67,7 @@ require 'inc/header.php';
 
 <div class="main-container" id="overlay">
 <h2 class="header animated infinite pulse slower">TV Phrase Hunter</h2>
+<h3 class="header" style="color:black;font-size: 30px;">Clue: <?php echo $_SESSION['clue'];?> </h3>
 <?php if ($game->checkForLose() == true){ ?>
     <style>
         body {
@@ -98,7 +99,11 @@ require 'inc/header.php';
 	          box-shadow: 4px 4px 8px #000;
 	}
         </style>
-    <?php echo $game->gameOver();
+    <?php
+    $scores[$uname]++;
+    $up = json_encode($scores);
+		file_put_contents('Leaderboard.json',$up);
+    echo $game->gameOver();
     } else { ?>
     <div id="phrase" class="section">
         <ul>

@@ -1,10 +1,26 @@
 <?php session_start(); /* Starts the session */
 require 'inc/header.php';
+$accounts = file_get_contents('accounts.json');
+$logins = json_decode($accounts, true);
+$leaderBoard = file_get_contents('Leaderboard.json');
+$scores = json_decode($leaderBoard, true);
 	/* Check Login form submitted */
+	if(isset($_POST['Register'])){
+		/* Check and assign submitted Username and Password to new variable */
+		$Username = isset($_POST['Username']) ? $_POST['Username'] : '';
+		$Password = isset($_POST['Password']) ? $_POST['Password'] : '';
+
+		$logins += [$Username => $Password];
+		$scores += [$Username => 0];
+		$up = json_encode($logins);
+		file_put_contents('accounts.json',$up);
+		$up = json_encode($scores);
+		file_put_contents('Leaderboard.json',$up);
+		$msg="<span style='color:green'>Registered! Please log in with your new info</span>";
+	}
 	if(isset($_POST['Submit'])){
 		/* Define username and associated password array */
 		/* You can change username and associated password array to your pref*/
-		$logins = array('Henry' => '123456','username1' => 'password1','username2' => 'password2');
 
 		/* Check and assign submitted Username and Password to new variable */
 		$Username = isset($_POST['Username']) ? $_POST['Username'] : '';
@@ -13,10 +29,12 @@ require 'inc/header.php';
 		/* Check Username and Password existence in defined array */
 		if (isset($logins[$Username]) && $logins[$Username] == $Password){
 			/* Success: Set session variables and redirect to Protected page  */
-			$_SESSION['UserData']['Username']=$logins[$Username];
+			print_r($_SESSION);
+			$_SESSION['UserData']['Username']=$Username;
 			header("location:index2.php");
 			exit;
 		} else {
+			print_r($logins);
 			/*Unsuccessful attempt: Set error message */
 			$msg="<span style='color:red'>Invalid Login Details</span>";
 		}
@@ -67,7 +85,7 @@ require 'inc/header.php';
     </tr>
     <?php } ?>
     <tr>
-      <td colspan="2" align="left" valign="top"><h3>Login</h3></td>
+      <td colspan="2" align="left" valign="top"><h3>Login/Register</h3></td>
     </tr>
     <tr>
       <td align="right" valign="top">Username</td>
@@ -80,7 +98,7 @@ require 'inc/header.php';
     <tr>
       <td>&nbsp;</td>
       <td><input name="Submit" type="submit" value="Login" class="Button3"></td>
-	   <td>     <tr> Username  => Henry' Password => '123456'     </tr></td>
+			<td><input name="Register" type="submit" value="Register" class="Button3"></td>
     </tr>
   </table>
 </form>

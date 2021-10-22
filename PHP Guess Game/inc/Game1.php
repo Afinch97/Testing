@@ -14,7 +14,7 @@ class Game
     {
         $keyboard = '';
 
-        $keyboard .= '<form action="play.php" method="POST">';
+        $keyboard .= '<form action="play3.php" method="POST">';
         $keyboard .= '<div id="qwerty" class="section">';
         $keyboard .= '<div class="keyrow">';
         $keyboard .= $this->keyedLetter('q');
@@ -102,7 +102,7 @@ class Game
     {
         if ($this->checkForLose() == true) {
             return '<h1>The phrase was: "' . $this->phrase->currentPhrase . '". Better luck next time!</h1>
-            <form action="play.php" method="POST">
+            <form action="play3.php" method="POST">
             <input id="btn__reset" type="submit" name="start" value="Start Game" />
             </form>;
             <form action="leaderBoard.php" method="POST">
@@ -110,7 +110,7 @@ class Game
             </form>';
         } elseif ($this->checkForWin() == true) {
             return '<h1>Congratulations on guessing: "' . $this->phrase->currentPhrase . '"</h1>
-            <form action="play.php" method="POST">
+            <form action="play3.php" method="POST">
             <input id="btn__reset" type="submit" name="start" value="Start Game" />
             </form>;
             <form action="leaderBoard.php" method="POST">

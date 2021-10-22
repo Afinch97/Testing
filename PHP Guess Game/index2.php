@@ -40,8 +40,8 @@ if(!isset($_SESSION['UserData']['Username'])){
 <div>
 <h2 class="header">Congrats! You have logged into password protected page.</h2>
 <br>
-<form action="play.php" method="POST">
-				<input type="submit" name="play" id="playBtn" value="Let's Play">
+<form action="levels.php" method="POST">
+				<input type="submit" name="play" id="playBtn" value="Choose Level">
 			</form>
 <form action="index.php" method="POST">
 				<input type="submit" name="logout" id="logoutBtn" value="Log Out">
