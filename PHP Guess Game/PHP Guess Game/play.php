@@ -1,7 +1,8 @@
 <?php
-
 session_start();
-
+$leaderBoard = file_get_contents('Leaderboard.json');
+$scores = json_decode($leaderBoard, true);
+$uname=$_SESSION['UserData']['Username'];
 if (isset($_POST['start'])) {
     unset($_SESSION['selected']);
     unset($_SESSION['phrase']);
@@ -98,7 +99,11 @@ require 'inc/header.php';
 	          box-shadow: 4px 4px 8px #000;
 	}
         </style>
-    <?php echo $game->gameOver();
+    <?php
+    $scores[$uname]++;
+    $up = json_encode($scores);
+		file_put_contents('Leaderboard.json',$up);
+    echo $game->gameOver();
     } else { ?>
     <div id="phrase" class="section">
         <ul>

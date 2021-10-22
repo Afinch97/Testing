@@ -11,8 +11,11 @@ $scores = json_decode($leaderBoard, true);
 		$Password = isset($_POST['Password']) ? $_POST['Password'] : '';
 
 		$logins += [$Username => $Password];
+		$scores += [$Username => 0];
 		$up = json_encode($logins);
 		file_put_contents('accounts.json',$up);
+		$up = json_encode($scores);
+		file_put_contents('Leaderboard.json',$up);
 		$msg="<span style='color:green'>Registered! Please log in with your new info</span>";
 	}
 	if(isset($_POST['Submit'])){
@@ -26,7 +29,8 @@ $scores = json_decode($leaderBoard, true);
 		/* Check Username and Password existence in defined array */
 		if (isset($logins[$Username]) && $logins[$Username] == $Password){
 			/* Success: Set session variables and redirect to Protected page  */
-			$_SESSION['UserData']['Username']=$logins[$Username];
+			print_r($_SESSION);
+			$_SESSION['UserData']['Username']=$Username;
 			header("location:index2.php");
 			exit;
 		} else {

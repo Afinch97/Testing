@@ -13,7 +13,7 @@ class Game
     public function displayKeyboard()
     {
         $keyboard = '';
-    
+
         $keyboard .= '<form action="play.php" method="POST">';
         $keyboard .= '<div id="qwerty" class="section">';
         $keyboard .= '<div class="keyrow">';
@@ -104,11 +104,17 @@ class Game
             return '<h1>The phrase was: "' . $this->phrase->currentPhrase . '". Better luck next time!</h1>
             <form action="play.php" method="POST">
             <input id="btn__reset" type="submit" name="start" value="Start Game" />
+            </form>;
+            <form action="leaderBoard.php" method="POST">
+            <input id="btn__reset" type="submit" name="start" value="Leaderboard" />
             </form>';
         } elseif ($this->checkForWin() == true) {
             return '<h1>Congratulations on guessing: "' . $this->phrase->currentPhrase . '"</h1>
             <form action="play.php" method="POST">
             <input id="btn__reset" type="submit" name="start" value="Start Game" />
+            </form>;
+            <form action="leaderBoard.php" method="POST">
+            <input id="btn__reset" type="submit" name="start" value="Leaderboard" />
             </form>';
         } else {
             return false;
