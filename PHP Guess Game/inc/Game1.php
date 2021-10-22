@@ -103,7 +103,10 @@ class Game
         if ($this->checkForLose() == true) {
             return '<h1>The phrase was: "' . $this->phrase->currentPhrase . '". Better luck next time!</h1>
             <form action="play3.php" method="POST">
-            <input id="btn__reset" type="submit" name="start" value="Start Game" />
+            <input id="btn__reset" type="submit" name="start" value="Keep Playing" />
+            </form>;
+            <form action="play2.php" method="POST">
+            <input id="btn__reset" type="submit" name="start" value="Try Level 2" />
             </form>;
             <form action="leaderBoard.php" method="POST">
             <input id="btn__reset" type="submit" name="start" value="Leaderboard" />
@@ -111,7 +114,10 @@ class Game
         } elseif ($this->checkForWin() == true) {
             return '<h1>Congratulations on guessing: "' . $this->phrase->currentPhrase . '"</h1>
             <form action="play3.php" method="POST">
-            <input id="btn__reset" type="submit" name="start" value="Start Game" />
+            <input id="btn__reset" type="submit" name="start" value="Keep Playing" />
+            </form>;
+            <form action="play4.php" method="POST">
+            <input id="btn__reset" type="submit" name="start" value="Try Level 4" />
             </form>;
             <form action="leaderBoard.php" method="POST">
             <input id="btn__reset" type="submit" name="start" value="Leaderboard" />
