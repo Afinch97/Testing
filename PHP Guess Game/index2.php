@@ -13,9 +13,9 @@ if(!isset($_SESSION['UserData']['Username'])){
 <meta charset="utf-8">
 <title>logged in</title>
 <style>
-	@import url('https://fonts.googleapis.com/css?family=Baloo+Bhai&display=swap');
+	
 	h2 {
-	  font-family: 'Baloo Bhai', cursive;
+	  font-family: 'sans-serif';
 	  font-size: 2rem;
 	  text-shadow: 4px 4px 8px #000;
 	}
@@ -23,7 +23,7 @@ if(!isset($_SESSION['UserData']['Username'])){
       color: #4C85BE;
     }
 	body {
-	  background-image: url('images/constellate-pFfZDaTVdtc-unsplash.jpg');
+	  background-image: url('images/background.jpg');
 	  background-size: cover;
 
 	}
