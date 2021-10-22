@@ -5,7 +5,7 @@ class Phrase
     public $currentPhrase;
     public $selected =[];
     public $phrases = [
-        'Did I do that',
+        "Nerd"=>"Did I do that",
         'Bazinga',
         'Live long and prosper',
         'Lucy you got some explaining to do',
@@ -20,6 +20,7 @@ class Phrase
         'Thats what she said',
         'Believe it',
         'Im going to be the pirate king'
+
     ];
 
     public function __construct($phrase = null, $selected = null)
