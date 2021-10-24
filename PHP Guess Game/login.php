@@ -14,11 +14,13 @@ $scores = json_decode($leaderBoard, true);
 		$scores += [$Username => 0];
 		$up = json_encode($logins);
 		file_put_contents('accounts.json',$up);
-		$up = json_encode($scores);
-		file_put_contents('Leaderboard.json',$up);
-		$msg="<span style='color:green'>Registered! Please log in with your new info</span>";
+		$down = json_encode($scores);
+		file_put_contents('Leaderboard.json',$down);
+		$msg="<span style='color:green; font-size: 2rem; font-weight: 800;'>Registered! Please log in with your new info</span>";
 	}
 	if(isset($_POST['Submit'])){
+		$accounts = file_get_contents('accounts.json');
+		$logins = json_decode($accounts, true);
 		/* Define username and associated password array */
 		/* You can change username and associated password array to your pref*/
 
@@ -34,9 +36,8 @@ $scores = json_decode($leaderBoard, true);
 			header("location:index2.php");
 			exit;
 		} else {
-			print_r($logins);
 			/*Unsuccessful attempt: Set error message */
-			$msg="<span style='color:red'>Invalid Login Details</span>";
+			$msg="<span style='color:red;font-size: 2rem;'>Invalid Login Details</span>";
 		}
 	}
 ?>
@@ -46,11 +47,12 @@ $scores = json_decode($leaderBoard, true);
 <meta charset="utf-8">
 <title>PHP Login Script Without Using Database</title>
 <style>
-	
+	@import url('https://fonts.googleapis.com/css?family=Baloo+Bhai&display=swap');
 	h2 {
-	  font-family: 'sans-serif';
-	  font-size: 8rem;
+	  font-family: 'Baloo Bhai', cursive;
+	  font-size: 4rem;
 	  text-shadow: 4px 4px 8px #000;
+		text-align: center;
 	}
 	.header {
       color: #4C85BE;
@@ -73,19 +75,19 @@ $scores = json_decode($leaderBoard, true);
         <div class="background background2"></div>
         <div class="background background3"></div>
 <div id="Frame0">
-  <h3 class="header">PHP Login Script Without Using Database Demo.</h3>
 
 </div>
 <br>
-<form action="" method="post" name="Login_Form">
+<form action="" method="post" name="Login_Form" style="position: relative; top: -20rem;">
   <table width="400" border="0" align="center" cellpadding="5" cellspacing="1" class="Table">
     <?php if(isset($msg)){?>
     <tr>
       <td colspan="2" align="center" valign="top"><?php echo $msg;?></td>
     </tr>
     <?php } ?>
+		<br>
     <tr>
-      <td colspan="2" align="left" valign="top"><h3>Login/Register</h3></td>
+      <td colspan="2" align="left" vertical-align="top"><h2 class="header">Login/Register</h2></td>
     </tr>
     <tr>
       <td align="right" valign="top">Username</td>
@@ -97,10 +99,12 @@ $scores = json_decode($leaderBoard, true);
     </tr>
     <tr>
       <td>&nbsp;</td>
-      <td><input name="Submit" type="submit" value="Login" class="Button3"></td>
-			<td><input name="Register" type="submit" value="Register" class="Button3"></td>
     </tr>
   </table>
+	<center cellspacing="0" cellpadding="2">
+	<td><input name="Submit" type="submit" value="Login" class="Button3"></td>
+	<td><input name="Register" type="submit" value="Register" class="Button3"></td>
+</center>
 </form>
 </body>
 </html>

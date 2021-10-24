@@ -13,11 +13,14 @@ if(!isset($_SESSION['UserData']['Username'])){
 <meta charset="utf-8">
 <title>logged in</title>
 <style>
-	
+	@import url('https://fonts.googleapis.com/css?family=Baloo+Bhai&display=swap');
 	h2 {
-	  font-family: 'sans-serif';
-	  font-size: 2rem;
+	  font-family: 'Baloo Bhai', cursive;
+	  font-size: 4rem;
 	  text-shadow: 4px 4px 8px #000;
+		text-align: center;
+		position: relative;
+		top: -20rem;
 	}
 	.header {
       color: #4C85BE;
@@ -38,14 +41,16 @@ if(!isset($_SESSION['UserData']['Username'])){
         <div class="background background2"></div>
         <div class="background background3"></div>
 <div>
-<h2 class="header">Congrats! You have logged into password protected page.</h2>
+<h2 class="header">Congrats! You have logged in</h2>
 <br>
-<form action="levels.php" method="POST">
+<center>
+<form action="levels.php" method="POST" style="position: relative; top: -20rem;">
 				<input type="submit" name="play" id="playBtn" value="Choose Level">
 			</form>
-<form action="index.php" method="POST">
+<form action="index.php" method="POST" style="position: relative; top: -20rem;">
 				<input type="submit" name="logout" id="logoutBtn" value="Log Out">
 			</form>
+</center>
 <br>
 
 </div>

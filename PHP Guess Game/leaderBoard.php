@@ -15,7 +15,7 @@ arsort($scores);
       color: #4C85BE;
     }
     body {
-	  background-image: url('images/oldTv.jpg');
+      background-image: url('images/background.jpg');
 	  background-position: center;
     background-size: cover;
 
@@ -58,8 +58,8 @@ arsort($scores);
 </style>
 
 <div class="main-container" id="overlay">
-<h2 class="header">TV Phrase Hunter</h2>
-<h3 class="header" color="black">Leaderboard</h3>
+<h2 class="header">Hangman</h2>
+<h3 class="header" style="color:white">Leaderboard</h3>
 <?php
 function printTable($arr){
   $html = '<table>';
