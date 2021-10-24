@@ -47,9 +47,8 @@ $scores = json_decode($leaderBoard, true);
 <meta charset="utf-8">
 <title>PHP Login Script Without Using Database</title>
 <style>
-	@import url('https://fonts.googleapis.com/css?family=Baloo+Bhai&display=swap');
 	h2 {
-	  font-family: 'Baloo Bhai', cursive;
+		font-family: 'sans-serif';
 	  font-size: 4rem;
 	  text-shadow: 4px 4px 8px #000;
 		text-align: center;

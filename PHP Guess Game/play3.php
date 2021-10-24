@@ -28,9 +28,8 @@ $game = new Game($phrase);
 require 'inc/header.php';
 ?>
 <style>
-    @import url('https://fonts.googleapis.com/css?family=Baloo+Bhai&display=swap');
 	h2 {
-	  font-family: 'Baloo Bhai', cursive;
+	  font-family: 'sans-serif';
 	  font-size: 6rem;
 	  text-shadow: 2px 2px 4px #000;
     }

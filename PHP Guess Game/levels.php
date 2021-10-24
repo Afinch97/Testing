@@ -8,9 +8,8 @@ session_start();
 <meta charset="utf-8">
 <title>Level choice</title>
 <style>
-	@import url('https://fonts.googleapis.com/css?family=Baloo+Bhai&display=swap');
 	h2 {
-	  font-family: 'Baloo Bhai', cursive;
+	  font-family: 'sans-serif';
 	  font-size: 2rem;
 	  text-shadow: 4px 4px 8px #000;
 		position: relative;
